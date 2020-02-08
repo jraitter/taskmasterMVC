@@ -26,19 +26,26 @@ export default class List {
   get Template() {
     return /*html*/`
 <div class="col-6">
-<h1>${this.listName}</h1>
-<button onclick="app.listController.deleteList('${this.id}')" class="btn btn-danger">Delete</button>
-<h3>Tasks: ${this.Tasks}</h3>
+<div class="row">
+<div class="col-12 d-flex align-items-center">
+<button onclick="app.listController.deleteList('${this.id}')" class="btn btn-sm btn-danger">X</button>
+<h3 class="pl-1 mb-0">${this.listName}</h3>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+ <h4 class="mt-3">Tasks: </h4><span>${this.Tasks}</span>
+</div>
+</div>
 <form onsubmit="app.listController.addTask(event, '${this.id}')">
-                    <div class="form-group">
-                        <label for=""></label>
-                        <input type="text" name="taskName" class="form-control" placeholder="Add extra tasks"
-                            aria-describedby="helpId">
-                        <button class="btn btn-primary" type="submit">
-                            Add tasks
-                        </button>
-                    </div>
-                </form>
+          <div class="form-group">
+               <label for=""></label>
+              <input type="text" name="taskName" class="form-control" placeholder="Add extra tasks">
+               <button class="btn btn-primary" type="submit">
+                   Add tasks
+              </button>
+           </div>
+       </form>
 </div>
 `
   }

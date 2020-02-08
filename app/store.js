@@ -23,7 +23,7 @@ function _loadState() {
       return list
     })
   } catch (e) {
-
+    // we are just going to ignore this catch if it happens
   }
 
 }

@@ -36,12 +36,41 @@ export default class ListController {
     _drawLists();
   }
   deleteList(listID) {
-    _listService.deleteList(listID);
-    _drawLists();
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this list.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Your list has been deleted!", {
+            icon: "success",
+          });
+          _listService.deleteList(listID);
+          _drawLists();
+        }
+      });
+
   }
   deleteTask(listID, taskID) {
-    _listService.deleteTask(listID, taskID);
-    _drawLists();
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this task.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Your task has been deleted!", {
+            icon: "success",
+          });
+          _listService.deleteTask(listID, taskID);
+          _drawLists();
+        }
+      });
   }
 }
 //Public
