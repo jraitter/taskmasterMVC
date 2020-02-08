@@ -25,7 +25,7 @@ export default class List {
   }
   get Template() {
     return /*html*/`
-<div class="col-6">
+<div class="col-12 col-sm-6">
 <div class="row">
 <div class="col-12 d-flex align-items-center">
 <button onclick="app.listController.deleteList('${this.id}')" class="btn btn-sm btn-danger">X</button>
@@ -41,7 +41,7 @@ export default class List {
           <div class="form-group">
                <label for=""></label>
               <input type="text" name="taskName" class="form-control" placeholder="Add extra tasks">
-               <button class="btn btn-primary" type="submit">
+               <button class="btn btn-sm btn-primary" type="submit">
                    Add tasks
               </button>
            </div>
