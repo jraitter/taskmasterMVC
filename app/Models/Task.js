@@ -10,6 +10,7 @@ export default class Task {
       <div class="row mb-1">
       <div class="col-12 d-flex align-items-center">
       <button onclick="app.listController.deleteTask('${taskID}', '${this.id}')" type="button" class="btn btn-warning btn-sm">X</button>
+      <input type="checkbox" class="ml-1">
       <h6 class="m-0 pl-2">${this.taskName}</h6>
       </div>
     </div>
