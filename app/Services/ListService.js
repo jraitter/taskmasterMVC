@@ -4,6 +4,7 @@ import _store from "../store.js"
 
 //Public
 class ListService {
+
   constructor() {
     console.log("ListService constructor loaded");
   }
@@ -43,6 +44,19 @@ class ListService {
     let tasks = list.tasks.filter(task => task.id !== taskID);
     list.tasks = tasks;
     _store.saveState();
+  }
+  taskChecked(taskID, isChecked) {
+    console.log("ListService taskChecked method");
+    let lists = _store.State.lists;
+    for (let i = 0; i < lists.length; i++) {
+      let tasks = lists[i].tasks;
+      for (let j = 0; j < tasks.length; j++) {
+        if (tasks[j].id === taskID) {
+          tasks[j].isChecked = isChecked;
+        }
+      }
+      _store.saveState();
+    }
   }
 }
 

@@ -35,6 +35,17 @@ export default class ListController {
     _listService.addTask(newTaskObj, id)
     _drawLists();
   }
+
+  taskChecked(taskID) {
+    console.log("taskID = ", taskID);
+    let currElem = document.getElementById(taskID)
+    console.log("the element is ", currElem.checked)
+    let isChecked = currElem.checked;
+    _listService.taskChecked(taskID, isChecked);
+  }
+
+
+
   deleteList(listID) {
     swal({
       title: "Are you sure?",
@@ -45,9 +56,9 @@ export default class ListController {
     })
       .then((willDelete) => {
         if (willDelete) {
-          swal("Your list has been deleted!", {
-            icon: "success",
-          });
+          // swal("Your list has been deleted!", {
+          //   icon: "success",
+          // });
           _listService.deleteList(listID);
           _drawLists();
         }
@@ -64,9 +75,9 @@ export default class ListController {
     })
       .then((willDelete) => {
         if (willDelete) {
-          swal("Your task has been deleted!", {
-            icon: "success",
-          });
+          // swal("Your task has been deleted!", {
+          //   icon: "success",
+          // });
           _listService.deleteTask(listID, taskID);
           _drawLists();
         }
