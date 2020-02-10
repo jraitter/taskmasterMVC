@@ -60,5 +60,7 @@ class ListService {
   }
 }
 
+// singleton concept:
+// only create one instance of the service and export that.  Other files that import the service, are all gettign the same instance so we don't have multiple instances
 const SERVICE = new ListService();
 export default SERVICE;

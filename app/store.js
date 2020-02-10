@@ -44,5 +44,7 @@ class Store {
 
 _loadState();
 
+// singleton concept:
+// only create one instance of store and export that.  Other files that import store, are all gettign the same instance so we don't have multiple instances of store.
 const store = new Store();
 export default store;

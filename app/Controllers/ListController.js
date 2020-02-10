@@ -1,4 +1,5 @@
 import _listService from "../Services/ListService.js";
+// you can import the store to get access to the data, but never change the data from anywhere except in the service.
 import _store from "../store.js"
 
 
@@ -24,6 +25,7 @@ export default class ListController {
     }
     // send new list object to the pizza service
     _listService.addList(newListObj)
+    formData.reset();
     _drawLists()
   }
   addTask(event, id) {
@@ -42,6 +44,7 @@ export default class ListController {
     console.log("the element is ", currElem.checked)
     let isChecked = currElem.checked;
     _listService.taskChecked(taskID, isChecked);
+    // do not call your draw function here because this method is only passing data to the store.
   }
 
 
